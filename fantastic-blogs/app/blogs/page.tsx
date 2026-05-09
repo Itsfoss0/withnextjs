@@ -1,19 +1,19 @@
 import Blog from "../components/Blog.component";
 import { getBlogs } from "../services/blog-service";
 
-const BlogList = () => {
-  const blogs = getBlogs();
-
+const BlogList = async () => {
+  const blogs = getBlogs();  
   return (
     <div>
       <h2>Blogs</h2>
       {blogs.map((blog) => (
         <Blog
           key={blog.id}
+          id={blog.id}
           title={blog.title}
           likes={blog.likes}
           author={blog.author}
-          link={blog.url}
+          url={blog.url}
         />
       ))}
     </div>

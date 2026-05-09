@@ -1,14 +1,17 @@
+import Link from "next/link";
 import { BlogProps } from "../types/blog.types";
 
-const Blog = ({ title, likes, author, link }: BlogProps) => {
+const Blog = ({ title, likes, author, url, id }: BlogProps) => {
   return (
     <div>
       <p>
-        <strong>{title}</strong> {" "}
-        by {author}{" "}
+        <Link href={`/blogs/${id}`}>
+          {" "}
+          <strong>{title}</strong> - {author}
+        </Link>
       </p>
       <p>{likes} likes </p>
-      <a href={link}>{link}</a>
+      <p>{url}</p>
     </div>
   );
 };

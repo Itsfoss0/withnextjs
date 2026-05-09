@@ -1,4 +1,6 @@
-const blogs = [
+import { BlogProps } from "../types/blog.types";
+
+const blogs: BlogProps[] = [
   {
     id: 1,
     title: "Migrating from ingress to gateway API",
@@ -40,7 +42,7 @@ const nextBlogId = (): number => {
   return blogs.length + 1;
 };
 
-export const getBlogs = () => {
+export const getBlogs = (): BlogProps[] => {
   return blogs;
 };
 
@@ -51,4 +53,15 @@ export const addBlog = (
   likes = 10,
 ) => {
   blogs.push({ id: nextBlogId(), title, url, likes, author });
+};
+
+export const getBlogByID = (id: number): BlogProps | undefined => {
+  return blogs.find((blog) => blog.id === id);
+};
+
+export const likeBlog = (blogId: number) => {
+  const blog = blogs.find((blog) => blog.id === blogId);
+  if (blog) {
+    blog.likes += 1;
+  }
 };
