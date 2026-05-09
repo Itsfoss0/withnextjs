@@ -1,10 +1,9 @@
-import Link from "next/link"
-
+import Link from "next/link";
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -12,14 +11,12 @@ export default function RootLayout({
         <nav>
           <Link href={"/"}>home</Link>
           {" | "}
-          <Link href={"/notes"}>notes</Link>
+          <Link href={"/blogs"}>blogs</Link>
           {" | "}
-          <Link href={"/notes/new"}>new</Link>
-
+          <Link href={"/blogs/new"}>new</Link>
         </nav>
         {children}
-
       </body>
     </html>
-  )
+  );
 }
