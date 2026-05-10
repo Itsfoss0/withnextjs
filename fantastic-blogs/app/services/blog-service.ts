@@ -43,7 +43,7 @@ const nextBlogId = (): number => {
 };
 
 export const getBlogs = (): BlogProps[] => {
-  return blogs;
+  return blogs.sort((a, b) => b.likes - a.likes);
 };
 
 export const addBlog = (
