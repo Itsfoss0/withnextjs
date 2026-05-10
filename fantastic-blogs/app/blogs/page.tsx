@@ -49,6 +49,8 @@ const BlogList = async ({ searchParams }: SearchParams) => {
           url={blog.url}
         />
       ))}
+
+      {blogsToShow.length === 0 && <p>No blog matches your search keyword</p>}
     </div>
   );
 };
